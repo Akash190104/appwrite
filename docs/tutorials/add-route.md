@@ -30,7 +30,7 @@ App::post('/v1/storage/buckets/:bucketId/files')
     ->groups(['api'])
 ```
 
-In the above example groups() is used to define the current route as part of the routes that shares a common init middleware hook.
+In the above example, groups() is used to define the current route as part of the routes that shares a common init middleware hook.
 
 ```php
 App::init()
@@ -58,11 +58,11 @@ App::post('/v1/storage/buckets/:bucketId/files')
 
 #### Audit
 * audits.event - Identify the log in human-readable text.
-* audits.userId - Signals the extraction of userId in places that it's not available natively.
+* audits.userId - Signals the extraction of userId in places where it's not available natively.
 * audits.resource - Signals the extraction part of the resource.
 
 - audits.event - Identify the log in human-readable text.
-- audits.userId - Signals the extraction of $userId in places that it's not available natively.
+- audits.userId - Signals the extraction of $userId in places where it's not available natively.
 - audits.resource - Signals the extraction part of the resource.
 
 ```php
@@ -109,7 +109,7 @@ App::get('/v1/storage/buckets/:bucketId/files/:fileId/preview')
 
 - abuse-key - Specifies routes unique abuse key.
 - abuse-limit - Specifies the number of times the route can be requested in a time frame, per route.
-- abuse-time - Specifies the time frame (in seconds) relevancy of the all other abuse definitions, per route.
+- abuse-time - Specifies the time frame (in seconds) relevancy of all other abuse definitions, per route.
 
 When using the example below, we configure the abuse mechanism to allow this key combination
 constructed from the combination of the ip, http method, url, userId to hit the route maximum 60 times in 1 hour (60 seconds \* 60 minutes).
@@ -139,14 +139,14 @@ As the name implies, `param()` is used to define a request parameter.
 
 - A key (name)
 - A default value
-- An instance of a validator class,This can also accept a callback that returns a validator instance. Dependency injection is supported for the callback.
+- An instance of a validator class, This can also accept a callback that returns a validator instance. Dependency injection is supported for the callback.
 - Description of the parameter
 - Is the route optional
 - An array of injections
 
 ```php
 App::get('/v1/account/logs')
-    ->param('queries', [], new Queries([new Limit(), new Offset()]), 'Array of query strings generated using the Query class provided by the SDK. [Learn more about queries](https://appwrite.io/docs/queries). Only supported methods are limit and offset', true)
+    ->param('queries', [], new Queries([new Limit(), new Offset()]), 'Array of query strings generated using the Query class provided by the SDK. [Learn more about queries](https://appwrite.io/docs/queries). The only supported methods are limit and offset', true)
 ```
 
 ### 6. inject
